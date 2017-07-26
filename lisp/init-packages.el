@@ -26,6 +26,8 @@
 			 iedit
 			 helm-ag
 			 flycheck
+			 yasnippet
+			 auto-yasnippet
 			 
 			 ) "Default packages")
 
@@ -105,8 +107,19 @@
 ;; JavaScript Run
 (require 'nodejs-repl)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
+;; 只在 js文件中语法检查
+(add-hook 'js2-mode-hook 'flycheck-mode)
+
+;; 编程语言下激活代码补全
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; auto-yasnippet config
+
+
 ;; 激活语法检测flycheck
-(global-flycheck-mode t)
+;;(global-flycheck-mode t)
 
 ;; 加载主题
 (load-theme 'monokai t)
