@@ -19,7 +19,12 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+;; 使用AG全局搜索版本库
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
 ;; 版本仓库
 (global-set-key (kbd "C-c p f") 'counsel-git)
+
+(global-set-key (kbd "M-s e") 'iedit-mode)
 
 (provide 'init-keybindings)
