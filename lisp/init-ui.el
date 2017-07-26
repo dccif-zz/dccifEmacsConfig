@@ -1,5 +1,6 @@
 ;; 关闭状态栏
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; 关闭启动界面
 (setq inhibit-splash-screen t)
