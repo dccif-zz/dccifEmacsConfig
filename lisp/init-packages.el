@@ -9,7 +9,7 @@
 
 (require 'cl)
 
-(defvar my/packages '(
+(defvar dccif/packages '(
 		      company
 		      monokai-theme
 		      hungry-delete
@@ -23,26 +23,29 @@
 		      
 		      ) "Default packages")
 
-(setq package-selected-packages my/packages)
+(setq package-selected-packages dccif/packages)
 
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
+(defun dccif/packages-installed-p ()
+  (loop for pkg in dccif/packages
 	when (not (package-installed-p pkg)) do (return nil)
 	finally (return t)))
 
-(unless (my/packages-installed-p)
+(unless (dccif/packages-installed-p)
   (message "%s" "Refreshing package databaes...")
   (package-refresh-contents)
-  (dolist (pkg my/packages)
+  (dolist (pkg dccif/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
 
+
 (global-hungry-delete-mode)
 
+(smartparens-global-mode t)
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
 
 ;; js2-mode for js files config
 (setq auto-mode-alist
@@ -50,7 +53,11 @@
        '(("\\.js\\'" . js2-mode))
        auto-mode-alist))
 
+
 (global-company-mode t)
+
+;; JavaScript Run
+(require 'nodejs-repl)
 
 ;; 加载主题
 (load-theme 'monokai t)
