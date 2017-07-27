@@ -28,6 +28,10 @@
 			 flycheck
 			 yasnippet
 			 auto-yasnippet
+			 evil
+			 window-numbering
+			 which-key
+			 evil-leader
 			 
 			 ) "Default packages")
 
@@ -46,6 +50,31 @@
       (package-install pkg))))
 
 ;; 配置文件
+
+;; 启动窗口切换
+(window-numbering-mode 1)
+(which-key-mode)
+
+;; 启动Vim模式 (Evil)
+;; Evil config
+(evil-mode 1)
+(global-evil-leader-mode)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+;; Evil-leader config
+(evil-leader/set-key
+ "ff" 'find-file
+ "bb" 'switch-to-buffer
+ "0"  'select-window-0
+ "1"  'select-window-1
+ "2"  'select-window-2
+ "3"  'select-window-3
+ "w/" 'split-window-right
+ "w-" 'split-window-below
+ ":"  'counsel-M-x
+ "wM" 'delete-other-windows
+ )
+
 
 (global-hungry-delete-mode)
 
@@ -109,6 +138,9 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 ;; 只在 js文件中语法检查
 (add-hook 'js2-mode-hook 'flycheck-mode)
+
+;; Lisp config
+(setq inferior-lisp-program "D:/Program Files (x86)/clisp-2.49")
 
 ;; 编程语言下激活代码补全
 (require 'yasnippet)

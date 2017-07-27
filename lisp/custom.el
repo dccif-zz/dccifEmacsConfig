@@ -9,6 +9,9 @@
  '(custom-safe-themes
    (quote
     ("9492cf1ac00c8a1f7130a867a97404dfeb6727801c6b2b40b853b91543f7af67" default)))
+ '(package-selected-packages
+   (quote
+    (evil company monokai-theme hungry-delete swiper counsel smartparens org js2-mode nodejs-repl popwin web-mode js2-refactor expand-region iedit helm-ag flycheck yasnippet auto-yasnippet)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 40)
  '(show-paren-mode t)
