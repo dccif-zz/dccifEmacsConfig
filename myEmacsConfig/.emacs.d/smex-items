@@ -1,0 +1,22 @@
+
+;; ----- smex-history -----
+(
+ package-autoremove
+ customize-group
+ package-list-packages
+ eval-buffer
+ customize
+ org-mode
+ window-divider-mode
+)
+
+;; ----- smex-data -----
+(
+ (eval-buffer . 2)
+ (package-autoremove . 7)
+ (package-list-packages . 2)
+ (window-divider-mode . 1)
+ (org-mode . 1)
+ (customize . 1)
+ (customize-group . 2)
+)
